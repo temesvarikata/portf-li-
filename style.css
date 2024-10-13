@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #e5c9df;
+    color: #333;
+}
+
+/* Header stílusok */
+header {
+    background-color: #d67fb8;
+    text-align: center;
+    padding: 40px 0;
+}
+
+.profile-container {
+    display: inline-block;
+    text-align: center;
+}
+
+.profile-picture {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #380831;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #ff76d4;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Section alap stílusok */
+.section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #290620;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Quote Section */
+#quote-section {
+    background-color: #ffe4e1;
+    padding: 40px 0;
+}
+
+#quote {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#new-quote {
+    padding: 10px 20px;
+    background-color: #f6218b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#new-quote:hover {
+    background-color: #f4b8e8;
+}
+
+/* Projektek stílusa */
+.project-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: #777;
+}
+
+/* Kapcsolat form */
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contact-form button {
+    padding: 10px 20px;
+    background-color: #ff50e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contact-form button:hover {
+    background-color: #f291f0;
+}
+
+/* Arányos kép megjelenítés */
+.profile-picture {
+    width: 100%;
+    max-width: 150px; /* Maximális szélesség */
+    height: auto;     /* Magasság automatikus, hogy az arány megmaradjon */
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Arányos kép megjelenítés minimálisan lekerekített sarkokkal */
+.profile-picture {
+    width: 100%;
+    max-width: 100px; /* Maximális szélesség, hogy arányosan jelenjen meg */
+    height: auto;     /* Magasság automatikusan, hogy az arány megmaradjon */
+    border-radius: 5px; /* Minimális lekerekítés a sarkokon */
+    margin-bottom: 10px;
+    object-fit: contain; /* Biztosítja, hogy ne legyen levágva a kép */
+}
