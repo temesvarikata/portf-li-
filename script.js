@@ -16,6 +16,37 @@ window.onload = function() {
     fetchQuote();
 };
 
+
+// GitHub API meghívása
+function fetchGitHubProjects() {
+    const githubUsername = 'github-felhasználóneved'; // Cseréld le a saját GitHub felhasználónevedre
+    const apiUrl = `https://api.github.com/users/${githubUsername}/repos`;
+
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            const projectGrid = document.getElementById('github-projects');
+            data.forEach(repo => {
+                // Minden egyes repo esetén új div-et hozunk létre
+                const projectCard = document.createElement('div');
+                projectCard.classList.add('project-card');
+                projectCard.innerHTML = `
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || 'No description available'}</p>
+                    <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+                `;
+                projectGrid.appendChild(projectCard);
+            });
+        })
+        .catch(error => console.error('Error fetching GitHub repos:', error));
+}
+
+// Hívjuk meg a fetchGitHubProjects függvényt amikor betölt az oldal
+window.onload = function() {
+    fetchGitHubProjects();
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     fetch('https://randomuser.me/api/')
         .then(response => {
