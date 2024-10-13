@@ -69,5 +69,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
+// script.js
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('load-users').addEventListener('click', loadRandomUsers);
+
+    function loadRandomUsers() {
+        fetch('https://randomuser.me/api/?results=3') // 3 véletlenszerű felhasználó betöltése
+            .then(response => response.json())
+            .then(data => {
+                const userContainer = document.getElementById('user-container');
+                userContainer.innerHTML = ''; // Előző felhasználók törlése
+                data.results.forEach(user => {
+                    const userDiv = document.createElement('div');
+                    userDiv.innerHTML = `
+                        <img src="${user.picture.medium}" alt="Felhasználó képe">
+                        <p><strong>Név:</strong> ${user.name.first} ${user.name.last}</p>
+                        <p><strong>Ország:</strong> ${user.location.country}</p>
+                        <p><strong>Email:</strong> ${user.email}</p>
+                    `;
+                    userContainer.appendChild(userDiv);
+                });
+            })
+            .catch(error => console.error('Hiba történt az API hívás során:', error));
+    }
+});
 
 
