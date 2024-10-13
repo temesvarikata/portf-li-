@@ -50,3 +50,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Új idézet betöltése gombnyomásra
     fetchQuoteButton.addEventListener('click', fetchQuote);
 });
+
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const quoteElement = document.getElementById('quote');
+    const authorElement = document.getElementById('author');
+    const fetchQuoteButton = document.getElementById('fetch-quote');
+
+    const fetchQuote = () => {
+        fetch('https://api.quotable.io/random')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Hálózati hiba történt');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const quote = data.content; // Az idézet szövege
+                const author = `Szerző: ${data.author}`; // Szerző neve
+
+                quoteElement.textContent = `"${quote}"`;
+                authorElement.textContent = author;
+            })
+            .catch(error => {
+                console.error('Hiba történt:', error);
+            });
+    };
+
+    // Idézet betöltése az oldal betöltésekor
+    fetchQuote();
+
+    // Új idézet betöltése gombnyomásra
+    fetchQuoteButton.addEventListener('click', fetchQuote);
+});
