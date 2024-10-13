@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('load-users').addEventListener('click', loadRandomUsers);
 
     function loadRandomUsers() {
-        fetch('https://randomuser.me/api/?results=3') // 3 véletlenszerű felhasználó betöltése
+        fetch('https://randomuser.me/api/') // 3 véletlenszerű felhasználó betöltése
             .then(response => response.json())
             .then(data => {
                 const userContainer = document.getElementById('user-container');
