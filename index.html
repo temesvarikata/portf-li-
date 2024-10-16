@@ -70,4 +70,38 @@
     <h2>Véletlenszerű felhasználók</h2>
     <div id="user-container"></div>
     <button id="load-users">Tölts be több felhasználót</button>
-</section>
+</section> 
+
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API példa</title>
+</head>
+<body>
+    <h1>Időjárás</h1>
+    <div id="weather">Töltés...</div>
+
+    <script>
+        // Az API URL-je (OpenWeatherMap)
+        const apiKey = 'API_KULCSOD_IDE';
+        const city = 'Budapest';
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=hu`;
+
+        // Adatok lekérése az API-ból
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Időjárási adatok megjelenítése
+                const weatherDiv = document.getElementById('weather');
+                const temperature = data.main.temp;
+                const description = data.weather[0].description;
+                weatherDiv.innerHTML = `A hőmérséklet: ${temperature} °C, állapot: ${description}`;
+            })
+            .catch(error => {
+                console.error('Hiba történt az API elérésekor:', error);
+            });
+    </script>
+</body>
+</html>
